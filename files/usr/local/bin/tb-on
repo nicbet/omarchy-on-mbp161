@@ -1,0 +1,14 @@
+#!/bin/bash
+# Enable Thunderbolt USB-C ports (Titan Ridge 4C)
+set -e
+
+for dev in /sys/bus/pci/devices/*; do
+  [ "$(cat "$dev/vendor" 2>/dev/null)" = "0x8086" ] && \
+  [ "$(cat "$dev/device" 2>/dev/null)" = "0x15ec" ] || continue
+  addr=$(basename "$dev")
+  setpci -s "$addr" COMMAND=0x0006
+  echo on > "$dev/power/control"
+  echo "Enabled $addr"
+done
+
+echo "Thunderbolt USB ports are on. Plug in your device."

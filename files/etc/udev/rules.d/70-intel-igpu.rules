@@ -1,0 +1,2 @@
+# Stable DRM alias
+SUBSYSTEM=="drm", KERNEL=="card[0-9]*" KERNELS=="0000:00:02.0", SYMLINK+="dri/intel-igpu"

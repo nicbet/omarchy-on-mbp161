@@ -1,0 +1,1 @@
+SUBSYSTEMS=="sound", DEVPATH=="/devices/pci0000:00/*/*/t2bce_audio/t2bce_audio/card?", ATTR{id}="t2-16_1"

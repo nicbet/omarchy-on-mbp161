@@ -1,0 +1,229 @@
+{
+    "node.description": "MacBook Pro T2 DSP Speakers",
+    "media.name": "MacBook Pro T2 DSP Speakers",
+    "filter.graph": {
+        "nodes": [
+            {
+                "type": "builtin",
+                "label": "copy",
+                "name": "splitL"
+            },
+            {
+                "type": "builtin",
+                "label": "copy",
+                "name": "splitR"
+            },
+
+            {
+                "type": "builtin",
+                "label": "bq_lowpass",
+                "name": "woof_lp1_L",
+                "control": { "Freq": 2200.0, "Q": 0.707 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_lowpass",
+                "name": "woof_lp2_L",
+                "control": { "Freq": 2200.0, "Q": 0.707 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_peaking",
+                "name": "woof_bass_L",
+                "control": { "Freq": 75.0, "Q": 0.6, "Gain": 18.0 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_lowshelf",
+                "name": "woof_warmth_L",
+                "control": { "Freq": 250.0, "Q": 0.707, "Gain": 8.0 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_peaking",
+                "name": "woof_sub_L",
+                "control": { "Freq": 45.0, "Q": 0.9, "Gain": 10.0 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_highpass",
+                "name": "woof_hp_L",
+                "control": { "Freq": 28.0, "Q": 0.707 }
+            },
+
+            {
+                "type": "builtin",
+                "label": "bq_lowpass",
+                "name": "woof_lp1_R",
+                "control": { "Freq": 2200.0, "Q": 0.707 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_lowpass",
+                "name": "woof_lp2_R",
+                "control": { "Freq": 2200.0, "Q": 0.707 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_peaking",
+                "name": "woof_bass_R",
+                "control": { "Freq": 75.0, "Q": 0.6, "Gain": 18.0 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_lowshelf",
+                "name": "woof_warmth_R",
+                "control": { "Freq": 250.0, "Q": 0.707, "Gain": 8.0 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_peaking",
+                "name": "woof_sub_R",
+                "control": { "Freq": 45.0, "Q": 0.9, "Gain": 10.0 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_highpass",
+                "name": "woof_hp_R",
+                "control": { "Freq": 28.0, "Q": 0.707 }
+            },
+
+            {
+                "type": "builtin",
+                "label": "bq_highpass",
+                "name": "tweet_hp1_L",
+                "control": { "Freq": 2200.0, "Q": 0.707 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_highpass",
+                "name": "tweet_hp2_L",
+                "control": { "Freq": 2200.0, "Q": 0.707 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_peaking",
+                "name": "tweet_presence_L",
+                "control": { "Freq": 3000.0, "Q": 1.0, "Gain": -3.0 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_highshelf",
+                "name": "tweet_shelf_L",
+                "control": { "Freq": 5000.0, "Q": 0.5, "Gain": 3.0 }
+            },
+
+            {
+                "type": "builtin",
+                "label": "bq_highpass",
+                "name": "tweet_hp1_R",
+                "control": { "Freq": 2200.0, "Q": 0.707 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_highpass",
+                "name": "tweet_hp2_R",
+                "control": { "Freq": 2200.0, "Q": 0.707 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_peaking",
+                "name": "tweet_presence_R",
+                "control": { "Freq": 3000.0, "Q": 1.0, "Gain": -3.0 }
+            },
+            {
+                "type": "builtin",
+                "label": "bq_highshelf",
+                "name": "tweet_shelf_R",
+                "control": { "Freq": 5000.0, "Q": 0.5, "Gain": 3.0 }
+            },
+
+            {
+                "type": "builtin",
+                "label": "copy",
+                "name": "LW"
+            },
+            {
+                "type": "builtin",
+                "label": "copy",
+                "name": "LW2"
+            },
+            {
+                "type": "builtin",
+                "label": "copy",
+                "name": "RW"
+            },
+            {
+                "type": "builtin",
+                "label": "copy",
+                "name": "RW2"
+            }
+        ],
+        "links": [
+
+            {"output": "splitL:Out", "input": "woof_lp1_L:In"},
+            {"output": "splitL:Out", "input": "tweet_hp1_L:In"},
+            {"output": "splitR:Out", "input": "woof_lp1_R:In"},
+            {"output": "splitR:Out", "input": "tweet_hp1_R:In"},
+
+            {"output": "woof_lp1_L:Out", "input": "woof_lp2_L:In"},
+            {"output": "woof_lp2_L:Out", "input": "woof_bass_L:In"},
+            {"output": "woof_bass_L:Out", "input": "woof_warmth_L:In"},
+            {"output": "woof_warmth_L:Out", "input": "woof_sub_L:In"},
+            {"output": "woof_sub_L:Out", "input": "woof_hp_L:In"},
+            {"output": "woof_hp_L:Out", "input": "LW:In"},
+            {"output": "woof_hp_L:Out", "input": "LW2:In"},
+
+            {"output": "woof_lp1_R:Out", "input": "woof_lp2_R:In"},
+            {"output": "woof_lp2_R:Out", "input": "woof_bass_R:In"},
+            {"output": "woof_bass_R:Out", "input": "woof_warmth_R:In"},
+            {"output": "woof_warmth_R:Out", "input": "woof_sub_R:In"},
+            {"output": "woof_sub_R:Out", "input": "woof_hp_R:In"},
+            {"output": "woof_hp_R:Out", "input": "RW:In"},
+            {"output": "woof_hp_R:Out", "input": "RW2:In"},
+
+            {"output": "tweet_hp1_L:Out", "input": "tweet_hp2_L:In"},
+            {"output": "tweet_hp2_L:Out", "input": "tweet_presence_L:In"},
+            {"output": "tweet_presence_L:Out", "input": "tweet_shelf_L:In"},
+
+            {"output": "tweet_hp1_R:Out", "input": "tweet_hp2_R:In"},
+            {"output": "tweet_hp2_R:Out", "input": "tweet_presence_R:In"},
+            {"output": "tweet_presence_R:Out", "input": "tweet_shelf_R:In"}
+        ],
+        "inputs": [
+            "splitL:In",
+            "splitR:In"
+        ],
+        "outputs": [
+            "LW:Out",
+            "LW2:Out",
+            "tweet_shelf_L:Out",
+            "RW:Out",
+            "RW2:Out",
+            "tweet_shelf_R:Out"
+        ]
+    },
+    "capture.props": {
+        "node.name": "audio_effect.t2-161-speakers",
+        "media.class": "Audio/Sink",
+        "audio.channels": "2",
+        "audio.position": ["FL", "FR"],
+        "device.api": "dsp",
+        "audio.allowed-rates": [48000, 44100],
+        "node.virtual": "false",
+        "priority.session": 1500,
+        "state.default-volume": 0.75,
+        "device.icon-name": "audio-speakers"
+    },
+    "playback.props": {
+        "node.name": "effect_output.t2-161-speakers",
+        "node.description": "MacBook Pro T2 DSP Speakers Out",
+        "media.name": "MacBook Pro T2 DSP Speakers Out",
+        "target.object": "alsa_output.platform-sound.RawSpeakers",
+        "node.dont-fallback": "true",
+        "node.passive": "true",
+        "audio.channels": "6",
+        "audio.allowed-rates": [48000, 44100],
+        "audio.position": ["AUX0", "AUX1", "AUX2", "AUX3", "AUX4", "AUX5"]
+    }
+}

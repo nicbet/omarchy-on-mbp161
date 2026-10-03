@@ -1,0 +1,13 @@
+#!/bin/bash
+# Disable Thunderbolt USB-C ports (Titan Ridge 4C)
+set -e
+
+for dev in /sys/bus/pci/devices/*; do
+  [ "$(cat "$dev/vendor" 2>/dev/null)" = "0x8086" ] && \
+  [ "$(cat "$dev/device" 2>/dev/null)" = "0x15ec" ] || continue
+  addr=$(basename "$dev")
+  echo auto > "$dev/power/control"
+  echo "Suspended $addr"
+done
+
+echo "Thunderbolt USB ports are off."

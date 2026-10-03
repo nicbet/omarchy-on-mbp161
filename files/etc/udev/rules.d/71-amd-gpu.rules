@@ -1,0 +1,2 @@
+# /etc/udev/rules.d/71-amd-dgpu.rules
+SUBSYSTEM=="drm", KERNEL=="card[0-9]*", KERNELS=="0000:03:00.0", SYMLINK+="dri/amd-dgpu"

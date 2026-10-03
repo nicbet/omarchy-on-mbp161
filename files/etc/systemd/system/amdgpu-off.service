@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable AMD dGPU via vgaswitcheroo
+After=systemd-modules-load.service
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'for i in $(seq 1 30); do [ -e /sys/kernel/debug/vgaswitcheroo/switch ] && exec sh -c "echo OFF > /sys/kernel/debug/vgaswitcheroo/switch"; sleep 1; done; exit 1'
+
+[Install]
+WantedBy=multi-user.target
