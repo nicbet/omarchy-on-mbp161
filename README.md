@@ -225,3 +225,17 @@ systemctl --user restart wireplumber pipewire pipewire-pulse
   usable but still too quiet; the stock mic is left alone.
 - **1Password** crashed with SIGILL on its very first launch right after
   install; it runs fine when relaunched.
+
+## Credits
+
+- The speaker plumbing (the card-rename udev rule, the WirePlumber
+  `node.software-dsp` rules, and the node properties in `graph.json`) is
+  adapted from [t2-apple-audio-dsp](https://github.com/lemmyg/t2-apple-audio-dsp),
+  MIT, (C) 2026 Linux T2 Kernel Team. The crossover and EQ values are new.
+- `amdgpu-off.service` and general T2 guidance: the [t2linux](https://wiki.t2linux.org)
+  community.
+- [Omarchy](https://omarchy.org) does most of the T2 work out of the box.
+
+## License
+
+[MIT](LICENSE), except where noted in Credits.
